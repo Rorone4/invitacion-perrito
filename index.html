@@ -67,7 +67,7 @@ function pregunta(){
 
         <h1>🐶🐱</h1>
 
-        <h2>¿Quieres salir conmigo?</h2>
+        <h2>¿Quieres salir?</h2>
 
         <button class="si"
         onclick="acepto()">
@@ -92,7 +92,7 @@ function acepto(){
 
         <p>¿Dijiste que sí?</p>
 
-        <p>Selecciona cuándo estás libre 📅</p>
+        <p>Selecciona qué día estás libre 📅</p>
 
         <input type="date" id="fecha">
 
@@ -110,13 +110,13 @@ function rechazo(){
 
     document.getElementById("contenido").innerHTML = `
 
-        <h1>🐶🤔</h1>
+        <h1>⚠️ Error del sistema</h1>
 
-        <h2>Creo que te equivocaste...</h2>
+        <h2>La opción seleccionada no está disponible.</h2>
 
         <button class="si"
         onclick="pregunta()">
-            Intentar nuevamente
+            Por favor intenta nuevamente.
         </button>
 
     `;

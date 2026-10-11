@@ -70,18 +70,23 @@ input[type=date]{
     </button>
 
 </div>
-
+    
+<audio id="musica" autoplay loop>
+    <source src="Musica1.mp3" type="audio/mpeg">
+</audio>
+    
 <script>
 
 function pregunta(){
 
-    function pregunta(){
+    const musica = document.getElementById("musica");
 
-    let musica = document.getElementById("musica");
-
-    musica.volume = 0.4;
-
-    musica.play();
+    if(musica){
+        musica.volume = 0.4;
+        musica.play().catch(function(error){
+            console.log(error);
+        });
+    }
 
     document.getElementById("contenido").innerHTML = `
 
@@ -231,10 +236,6 @@ function finalizar(){
 }
 
 </script>
-
-<audio id="musica" autoplay loop>
-    <source src="Musica1.mp3" type="audio/mpeg">
-</audio>
 
 </body>
 </html>

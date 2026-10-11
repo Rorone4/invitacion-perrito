@@ -5,9 +5,6 @@
 <title>Invitación 🐶🐱</title>
 
 <style>
-<audio id="musica" loop>
-    toma-toma-danca.mp3
-</audio>
 body{
     font-family: Arial, sans-serif;
     background:#fff4e6;
@@ -15,6 +12,7 @@ body{
     justify-content:center;
     align-items:center;
     height:100vh;
+    margin:0;
 }
 
 .card{
@@ -50,6 +48,7 @@ input[type=date]{
     padding:10px;
     border-radius:8px;
     margin-top:10px;
+    width:220px;
 }
 </style>
 </head>
@@ -58,10 +57,13 @@ input[type=date]{
 
 <div class="card" id="contenido">
 
-    <h1>🐶</h1>
-    <h2>Hola 🐶</h2>
+    <h1>🐶🐱</h1>
 
-    <p>Necesito que respondas es muy importante:</p>
+    <h2>Hola</h2>
+
+    <p>
+        Necesito que respondas este cuestionario muy importante:
+    </p>
 
     <button class="si" onclick="pregunta()">
         Continuar
@@ -72,9 +74,8 @@ input[type=date]{
 <script>
 
 function pregunta(){
-document.getElementById("musica").play();
-    
-document.getElementById("contenido").innerHTML = `
+
+    document.getElementById("contenido").innerHTML = `
 
         <h1>🐶🐱</h1>
 
@@ -99,7 +100,7 @@ function acepto(){
 
         <h2>¡Espera!</h2>
 
-        <p>¿Dijiste que sí..?</p>
+        <p>¿Dijiste que sí?</p>
 
         <p>Selecciona qué día estás libre 📅</p>
 
@@ -118,12 +119,12 @@ function rechazo(){
 
     document.getElementById("contenido").innerHTML = `
 
-        <h1>⚠️ Error del sistema</h1>
+        <h1>⚠️</h1>
 
         <h2>La opción seleccionada no está disponible.</h2>
 
         <button class="si" onclick="pregunta()">
-            Por favor intenta nuevamente xd
+            Por favor intenta nuevamente
         </button>
 
     `;
@@ -134,9 +135,7 @@ function confirmar(){
     let fecha = document.getElementById("fecha").value;
 
     if(!fecha){
-
         alert("Selecciona una fecha");
-
         return;
     }
 
@@ -159,18 +158,18 @@ function confirmar(){
             </option>
 
             <option value="Tomar un café ☕">
-                Tomar un café, puede ser agua XD ☕
+                Tomar un café ☕
             </option>
 
-            <option value="Comer algo rico🍕">
-                Comer algo rico, lo que sea  🍕
+            <option value="Comer algo rico 🍕">
+                Comer algo rico 🍕
             </option>
 
-            <option value="Ir por un helado🍨">
-                Ir por un helado, qué calor..  🍨
+            <option value="Ir por un helado 🍨">
+                Ir por un helado 🍨
             </option>
 
-            <option value="Dar un paseo, no mayor a 3 h 🚶">
+            <option value="Dar un paseo 🚶">
                 Dar un paseo 🚶
             </option>
 
@@ -194,9 +193,7 @@ function finalizar(){
     let actividad = document.getElementById("actividad").value;
 
     if(!actividad){
-
         alert("Selecciona una actividad");
-
         return;
     }
 
@@ -215,7 +212,7 @@ function finalizar(){
         <h3>${actividad}</h3>
 
         <p>
-            Su solicitud quedó registrada xd
+            Ya quedó registrado.
         </p>
 
         <p>
@@ -226,8 +223,10 @@ function finalizar(){
 }
 
 </script>
-<audio id="musica" loop>
+
+<audio autoplay loop>
     toma-toma-danca.mp3
 </audio>
+
 </body>
 </html>

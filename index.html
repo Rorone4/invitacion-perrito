@@ -5,6 +5,9 @@
 <title>Invitación 🐶🐱</title>
 
 <style>
+<audio id="musica" loop>
+    toma-toma-danca.mp3
+</audio>
 body{
     font-family: Arial, sans-serif;
     background:#fff4e6;
@@ -69,8 +72,9 @@ input[type=date]{
 <script>
 
 function pregunta(){
-
-    document.getElementById("contenido").innerHTML = `
+document.getElementById("musica").play();
+    
+document.getElementById("contenido").innerHTML = `
 
         <h1>🐶🐱</h1>
 
@@ -222,6 +226,8 @@ function finalizar(){
 }
 
 </script>
-
+<audio id="musica" loop>
+    toma-toma-danca.mp3
+</audio>
 </body>
 </html>

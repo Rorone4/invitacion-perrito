@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Invitación 🐶🐱</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#fff4e6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    width:400px;
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+}
+
+button{
+    padding:10px 20px;
+    margin:10px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.si{
+    background:#4CAF50;
+    color:white;
+}
+
+.no{
+    background:#f44336;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="contenido">
+
+    <h1>🐶</h1>
+    <h2>Hola 🐶</h2>
+
+    <p>necesito que respondas este cuestionario muy importante:</p>
+
+    <button class="si" onclick="pregunta()">
+        Continuar
+    </button>
+
+</div>
+
+<script>
+
+function pregunta(){
+
+    document.getElementById("contenido").innerHTML = `
+
+        <h1>🐶🐱</h1>
+
+        <h2>¿Quieres salir conmigo?</h2>
+
+        <button class="si"
+        onclick="acepto()">
+            Sí
+        </button>
+
+        <button class="no"
+        onclick="rechazo()">
+            No
+        </button>
+
+    `;
+}
+
+function acepto(){
+
+    document.getElementById("contenido").innerHTML = `
+
+        <h1>🐶😳</h1>
+
+        <h2>¡Espera!</h2>
+
+        <p>¿Dijiste que sí?</p>
+
+        <p>Selecciona cuándo estás libre 📅</p>
+
+        <input type="date" id="fecha">
+
+        <br><br>
+
+        <button class="si"
+        onclick="confirmar()">
+            Confirmar
+        </button>
+
+    `;
+}
+
+function rechazo(){
+
+    document.getElementById("contenido").innerHTML = `
+
+        <h1>🐶🤔</h1>
+
+        <h2>Creo que te equivocaste...</h2>
+
+        <button class="si"
+        onclick="pregunta()">
+            Intentar nuevamente
+        </button>
+
+    `;
+}
+
+function confirmar(){
+
+    let fecha =
+    document.getElementById("fecha").value;
+
+    document.getElementById("contenido").innerHTML = `
+
+        <h1>🐶🐱</h1>
+
+        <h2>¡Perfecto!</h2>
+
+        <p>Elegiste:</p>
+
+        <h3>${fecha}</h3>
+
+        <p>Ya tenemos cita 😎</p>
+
+    `;
+}
+
+</script>
+
+</body>
+</html>

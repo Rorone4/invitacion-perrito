@@ -41,6 +41,13 @@ button{
     background:#f44336;
     color:white;
 }
+
+select,
+input[type=date]{
+    padding:10px;
+    border-radius:8px;
+    margin-top:10px;
+}
 </style>
 </head>
 
@@ -51,7 +58,7 @@ button{
     <h1>🐶</h1>
     <h2>Hola 🐶</h2>
 
-    <p>necesito que respondas este cuestionario muy importante:</p>
+    <p>Necesito que respondas es muy importante:</p>
 
     <button class="si" onclick="pregunta()">
         Continuar
@@ -67,15 +74,13 @@ function pregunta(){
 
         <h1>🐶🐱</h1>
 
-        <h2>¿Quieres salir?</h2>
+        <h2>¿Quieres salir conmigo?</h2>
 
-        <button class="si"
-        onclick="acepto()">
+        <button class="si" onclick="acepto()">
             Sí
         </button>
 
-        <button class="no"
-        onclick="rechazo()">
+        <button class="no" onclick="rechazo()">
             No
         </button>
 
@@ -90,7 +95,7 @@ function acepto(){
 
         <h2>¡Espera!</h2>
 
-        <p>¿Dijiste que sí?</p>
+        <p>¿Dijiste que sí..?</p>
 
         <p>Selecciona qué día estás libre 📅</p>
 
@@ -98,9 +103,8 @@ function acepto(){
 
         <br><br>
 
-        <button class="si"
-        onclick="confirmar()">
-            Confirmar
+        <button class="si" onclick="confirmar()">
+            Siguiente
         </button>
 
     `;
@@ -114,9 +118,8 @@ function rechazo(){
 
         <h2>La opción seleccionada no está disponible.</h2>
 
-        <button class="si"
-        onclick="pregunta()">
-            Por favor intenta nuevamente.
+        <button class="si" onclick="pregunta()">
+            Por favor intenta nuevamente xd
         </button>
 
     `;
@@ -124,8 +127,74 @@ function rechazo(){
 
 function confirmar(){
 
-    let fecha =
-    document.getElementById("fecha").value;
+    let fecha = document.getElementById("fecha").value;
+
+    if(!fecha){
+
+        alert("Selecciona una fecha");
+
+        return;
+    }
+
+    window.fechaElegida = fecha;
+
+    document.getElementById("contenido").innerHTML = `
+
+        <h1>🐶🐱</h1>
+
+        <h2>Una última pregunta</h2>
+
+        <p>
+            ¿Qué te gustaría hacer ese día?
+        </p>
+
+        <select id="actividad">
+
+            <option value="">
+                Selecciona una opción
+            </option>
+
+            <option value="Tomar un café ☕">
+                Tomar un café, puede ser agua XD ☕
+            </option>
+
+            <option value="Comer algo rico🍕">
+                Comer algo rico, lo que sea  🍕
+            </option>
+
+            <option value="Ir por un helado🍨">
+                Ir por un helado, qué calor..  🍨
+            </option>
+
+            <option value="Dar un paseo, no mayor a 3 h 🚶">
+                Dar un paseo 🚶
+            </option>
+
+            <option value="Tú eliges 😎">
+                Tú eliges 😎
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <button class="si" onclick="finalizar()">
+            Confirmar salida
+        </button>
+
+    `;
+}
+
+function finalizar(){
+
+    let actividad = document.getElementById("actividad").value;
+
+    if(!actividad){
+
+        alert("Selecciona una actividad");
+
+        return;
+    }
 
     document.getElementById("contenido").innerHTML = `
 
@@ -133,11 +202,21 @@ function confirmar(){
 
         <h2>¡Perfecto!</h2>
 
-        <p>Elegiste:</p>
+        <p>Fecha elegida:</p>
 
-        <h3>${fecha}</h3>
+        <h3>${window.fechaElegida}</h3>
 
-        <p>Ya tenemos cita 😎</p>
+        <p>Plan elegido:</p>
+
+        <h3>${actividad}</h3>
+
+        <p>
+            Su solicitud quedó registrada xd
+        </p>
+
+        <p>
+            Ahora me toca organizar el plan 😎
+        </p>
 
     `;
 }
@@ -146,4 +225,3 @@ function confirmar(){
 
 </body>
 </html>
-<!-- actualización -->

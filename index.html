@@ -93,7 +93,7 @@ function pregunta(){
 
         <h1>🐶🐱</h1>
 
-        <h2>¿Quieres salir conmigo?</h2>
+        <h2>¿Te gustaría salir conmigo?</h2>
 
         <button class="si" onclick="acepto()">
             Sí
@@ -112,7 +112,7 @@ function acepto(){
 
         <h1>🐶😳</h1>
 
-        <h2>¡Espera!</h2>
+        <h2>¡Espera...!</h2>
 
         <p>¿Dijiste que sí...? No me lo creo</p>
 
@@ -138,7 +138,7 @@ function rechazo(){
         <h2>La opción seleccionada no está disponible 😆.</h2>
 
         <button class="si" onclick="pregunta()">
-            Por favor intenta nuevamente, no te equivoques XD
+            Por favor intentalo nuevamente, no te equivoques XD
         </button>
 
     `;
@@ -210,6 +210,13 @@ function finalizar(){
         alert("Selecciona una actividad");
         return;
     }
+    fetch("https://script.google.com/macros/s/AKfycbwlN8FWDmuahXkSpZ_VbgJZCDF_e6ItSwDnsBBslUs297kSY3hutTtn5uzBYDGkaIqT/exec", {
+        method: "POST",
+        body: JSON.stringify({
+            fecha: window.fechaElegida,
+            actividad: actividad
+        })
+    });
 
     document.getElementById("contenido").innerHTML = `
 
